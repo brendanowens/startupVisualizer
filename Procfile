@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn planner.wsgi --log-file -
+web: gunicorn startupData.wsgi --log-file -
