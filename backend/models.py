@@ -1,4 +1,5 @@
-# from django.contrib.gis.db.models import PointField
+from django.contrib.gis.db.models import PointField
+from django.db.models import Sum
 from django.db import models
 from django_countries.fields import CountryField
 from localflavor.us.models import USStateField
@@ -6,6 +7,17 @@ from localflavor.us.models import USStateField
 
 class Investor(models.Model):
     name = models.CharField(max_length=200)
+
+    @property
+    def investments_sum(self):
+        return self.investment_set.aggregate(Sum('amount'))['amount__sum']
+
+    @property
+    def investments_count(self):
+        return self.investment_set.count()
+
+    def __str__(self):
+        return self.name
 
 
 class Company(models.Model):
@@ -27,8 +39,15 @@ class Company(models.Model):
     acquired_currency = models.CharField(max_length=3, null=True, blank=True)
     county = models.CharField(max_length=100)
     founded_at = models.IntegerField()
+    coordinates = PointField(null=True, blank=True)
 
-    # coordinates = PointField()
+    @property
+    def latitude(self):
+        return self.coordinates.coords[1]
+
+    @property
+    def longitude(self):
+        return self.coordinates.coords[0]
 
     def __str__(self):
         return self.name
@@ -38,3 +57,6 @@ class Investment(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     investor = models.ForeignKey(Investor, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=25, decimal_places=5)
+
+    def __str__(self):
+        return str(self.company)
