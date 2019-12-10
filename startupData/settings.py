@@ -161,4 +161,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if on_heroku:
     ALLOWED_HOSTS = ['*']
-    django_heroku.settings(locals())
+    config = locals()
+    django_heroku.settings(config, databases=False)
+    # Manual configuration of database
+    conn_max_age = config.get('CONN_MAX_AGE', 600)  # Used in django-heroku
+    config['DATABASES'] = {
+        'default': dj_database_url.parse(os.environ['DATABASE_URL'], engine='django.contrib.gis.db.backends.postgis',
+                                         conn_max_age=conn_max_age, ssl_require=True
+                                         )
+    }
