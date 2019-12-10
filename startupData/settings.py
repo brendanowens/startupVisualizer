@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django_filters',
     'frontend',
     'webpack_loader',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'smuggler'
 ]
 
 MIDDLEWARE = [

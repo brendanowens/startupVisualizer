@@ -22,6 +22,8 @@ django-filter = "*"
 django-webpack-loader = "*"
 django-environ = "*"
 psycopg2-binary = "*"
+django-dbbackup-ui = "*"
+django-smuggler = "*"
 
 [requires]
 python_version = "3.6"
