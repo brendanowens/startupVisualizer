@@ -1,0 +1,9 @@
+export const GET_COMPANIES = 'GET_COMPANIES';
+export const DELETE_COMPANY = 'DELETE_COMPANY';
+export const ADD_COMPANY = 'ADD_COMPANY';
+export const GET_ERRORS = 'GET_ERRORS';
+export const CREATE_MESSAGE = 'CREATE_MESSAGE';
+export const GET_INVESTMENTS = 'GET_INVESTMENTS';
+export const GET_INVESTORS = 'GET_INVESTORS';
+export const UPDATE_MIN_YEAR = 'UPDATE_MIN_YEAR';
+export const UPDATE_MAX_YEAR = 'UPDATE_MAX_YEAR';

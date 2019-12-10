@@ -1,0 +1,14 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+<html>
+<head>
+    {#    {% if on_heroku %}#}
+    {#    {% endif %}#}
+</head>
+<body>
+<div id="app">
+</div>
+{% render_bundle 'app' 'js' %}
+</body>
+</html>
