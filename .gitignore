@@ -4,3 +4,8 @@
 .idea/
 *.pyc
 node_modules/
+webpack-stats.json
+yarn-error.log
+frontend/static/frontend/
+startupData/.env
+/media
