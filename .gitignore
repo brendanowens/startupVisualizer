@@ -9,3 +9,4 @@ yarn-error.log
 frontend/static/frontend/
 startupData/.env
 /media
+__pycache__/

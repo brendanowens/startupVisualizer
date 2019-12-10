@@ -160,8 +160,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if on_heroku:
-    GDAL_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgdal.so"
-    GEOS_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgeos_c.so"
+    GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
+    GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
     ALLOWED_HOSTS = ['*']
     config = locals()
     django_heroku.settings(config, databases=False)
