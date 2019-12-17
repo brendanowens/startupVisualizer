@@ -5,7 +5,6 @@ from backend.models import Company, Investor, Investment
 
 with open('csvjson1.json') as json_file:
     data = json.load(json_file)
-    print(data)
 
 for item in data:
     try:
