@@ -22,10 +22,6 @@ PostgreSQL
 Yarn
 - Yarn is used for front-end package management
 - Install Yarn from https://yarnpkg.com/lang/en/docs/install/
-- To add a new package (from https://yarnpkg.com/en/) run `yarn add package-name`
-    - Note: any package that says to install using npm, you may install using yarn
-- Add the package to *assets/js/index.html*
-- To install all dependencies, run `yarn install`
 
 Webpack
 - Webpack packages up all the front-end libraries into one JS file and one CSS file
